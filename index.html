@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f5ef"><meta name="description" content="PawLink Smart Collar. An interactive university course prototype.">
+<title>PawLink Smart Collar · Interactive Prototype</title>
+<style>
+:root{--paper:#f6f5ef;--ink:#17312a;--muted:#51675d;--green:#d8ee8f;--edge:#dce1d6;--white:#fffefa;--orange:#ffbd8f}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 system-ui,sans-serif}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer;color:inherit}button:focus-visible{outline:3px solid #528153;outline-offset:3px}header{border-bottom:1px solid var(--edge)}.bar,main,footer{max-width:1080px;margin:auto;padding-inline:24px}.bar{height:76px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px;letter-spacing:-.06em}.logo{background:var(--ink);color:var(--green);border-radius:12px;width:36px;height:36px;display:grid;place-items:center;font-size:19px}.badge{display:inline-flex;gap:7px;align-items:center;border:1px solid var(--edge);border-radius:99px;padding:5px 11px;font-size:12px;font-weight:700;white-space:nowrap}.dot{width:7px;height:7px;border-radius:50%;background:#538041}.hero{min-height:307px;background:var(--green);border-radius:27px;position:relative;overflow:hidden;margin-top:26px;padding:38px 42px;display:flex;align-items:center}.hero-copy{position:relative;z-index:1}.eyebrow{font:800 11px/1.5 system-ui;letter-spacing:.18em}.hero h1{font-size:clamp(42px,7vw,72px);line-height:1.05;letter-spacing:-.065em;margin:12px 0 16px}.hero p{margin:0;color:#365239}.dog{position:absolute;right:0;bottom:0;width:49%;height:100%;object-fit:contain;object-position:bottom right}.device{display:flex;align-items:center;gap:9px;margin-top:22px;font-size:12px;font-weight:750}.device span{background:#f4fadf;border-radius:999px;padding:5px 10px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:23px 0;background:#e9ebe3;border-radius:17px;padding:6px}.tabs button{border:0;border-radius:12px;background:transparent;padding:12px 4px;font-weight:750}.tabs [aria-selected=true]{background:var(--white);box-shadow:0 2px 6px #17312a15}.panel[hidden], [hidden]{display:none!important}.panel{margin-bottom:18px}.panel-title{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:0 0 12px}.panel-title h2{margin:0;font-size:27px;letter-spacing:-.045em}.sub{color:var(--muted);font-size:13px;margin:2px 0}.grid{display:grid;grid-template-columns:1.75fr 1fr;gap:13px}.card{background:var(--white);border:1px solid var(--edge);border-radius:19px;padding:20px;min-width:0}.card h3{margin:0 0 4px;font-size:16px}.map{position:relative;min-height:276px;overflow:hidden;padding:0;background:#e6ebdc}.map svg{display:block;width:100%;height:276px}.map-label{position:absolute;top:12px;left:12px;background:var(--white);border-radius:8px;padding:5px 9px;font-size:11px;font-weight:800}.route{opacity:0;transition:opacity .2s}.route.on{opacity:1}.place{font-size:23px;font-weight:850;margin:9px 0 0}.action{background:var(--ink);color:white;border:0;border-radius:12px;padding:11px 15px;font-weight:750;min-height:44px}.action:hover{background:#295341}.action.secondary{background:#eaf0e4;color:var(--ink)}.side .action{width:100%;margin-top:12px}.side hr{border:0;border-top:1px solid var(--edge);margin:15px 0}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}.metric{font-size:clamp(26px,5vw,42px);font-weight:900;letter-spacing:-.055em;margin:8px 0 0}.metric small{font-size:13px;letter-spacing:0;font-weight:700}.bars{display:flex;align-items:flex-end;gap:8px;height:126px;border-bottom:1px solid var(--edge);margin-top:16px}.bars div{flex:1;background:#bfd775;border-radius:6px 6px 0 0;min-width:0}.hours{display:flex;justify-content:space-between;font-size:11px;margin-top:7px;color:var(--muted)}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.chip{border:1px solid var(--edge);border-radius:99px;background:var(--white);padding:8px 12px;font-size:13px;min-height:40px}.chip[aria-pressed=true]{background:#e6f2c4;border-color:#a6c36b;font-weight:800}.mood{background:#fce5cf}.mood strong{font-size:33px;display:block}.track{height:8px;background:#e5e9df;border-radius:99px;overflow:hidden;margin:4px 0 11px}.track i{height:100%;background:#96b95d;display:block;border-radius:inherit;transition:width .25s}.row{display:flex;justify-content:space-between;gap:8px}.premium{background:#17312a;color:#f9f8ee;border:0}.premium .sub{color:#c8d8ca}.premium h3{color:var(--green)}.premium .chip{border-color:#597363;background:#244238;color:white}.premium .chip[aria-pressed=true]{background:var(--green);color:var(--ink);border-color:var(--green)}.premium .action{background:var(--green);color:var(--ink)}.result{margin-top:13px;border-radius:12px;background:#27473b;padding:13px;min-height:74px}.result strong{font-size:18px}.notice{font-size:12px;color:var(--muted);margin:12px 0 0}footer{border-top:1px solid var(--edge);padding-top:13px;padding-bottom:23px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:15px}.legend{display:flex;align-items:center;gap:9px;margin-top:10px}.legend i{display:block;width:11px;height:11px;background:#d8ee8f;border:1px solid #83a55a;border-radius:50%}button:disabled{opacity:.66;cursor:wait}.wave{font-size:20px;letter-spacing:3px;color:var(--green)}
+@media(max-width:650px){.bar,main,footer{padding-inline:14px}.bar{height:59px}.hero{margin-top:14px;min-height:232px;padding:22px 17px;align-items:flex-start;border-radius:20px}.hero h1{font-size:clamp(30px,7.6vw,45px);margin:10px 0}.hero p{font-size:12px;max-width:172px}.hero p br{display:none}.dog{width:57%;height:83%;right:-12px}.device{margin-top:15px;gap:4px;flex-direction:column;align-items:flex-start}.device span{padding:3px 8px}.tabs{margin:14px 0;gap:3px;padding:4px}.tabs button{font-size:12px;padding:11px 3px}.grid{grid-template-columns:1fr;gap:9px}.card{padding:15px}.map{padding:0;min-height:0}.map svg{height:210px}.metric-grid{gap:6px}.metric-grid .card{padding:10px}.metric-grid h3{font-size:12px}.metric small{font-size:10px}.panel-title h2{font-size:23px}.panel-title .badge{font-size:10px}footer{flex-wrap:wrap;gap:4px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>
+.tabs{grid-template-columns:repeat(5,minmax(0,1fr))}
+.mood-tools{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mood-tools p{margin:5px 0 12px}
+.score-number{font-size:36px;font-weight:900;letter-spacing:-.06em;line-height:1.15}
+.score-number small{font-size:15px;letter-spacing:0}
+.profile-top,.monthly-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:12px;margin-bottom:12px}
+.profile-form{display:grid;gap:10px}
+.profile-form label,.month-picker{display:grid;gap:4px;font-size:13px;font-weight:750}
+.profile-form input,.month-picker select{width:100%;min-width:0;border:1px solid var(--edge);border-radius:10px;padding:9px 10px;background:white;color:var(--ink);font:inherit}
+.month-header{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:12px}
+.month-header h3{font-size:22px;margin:0}
+.month-header .month-picker{min-width:145px}
+.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:10px}
+.calendar .weekday{text-align:center;font-size:10px;color:var(--muted)}
+.day{border:1px solid var(--edge);border-radius:8px;background:#f6f5ef;min-height:41px;padding:3px 0;font-size:12px;font-weight:750;line-height:1.15}
+.day small{display:block;margin-top:3px;font-size:10px;color:#3b564a}
+.day.good{background:#e3f0bf}.day.mixed{background:#fbe9c9}.day.low{background:#f9ddd4}
+.day[aria-pressed=true]{outline:2px solid var(--ink);outline-offset:-2px}.day:disabled{opacity:.45;cursor:default}
+.month-stat{font-size:23px;font-weight:900;line-height:1.15;margin:3px 0 6px}
+.month-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0 4px}
+.month-stats>div{background:#edf2e7;border-radius:11px;padding:9px}
+.month-stats small{display:block;font-size:11px}
+.monthly-grid .map{margin-top:12px}.monthly-grid .map svg{height:205px}
+.day-summary{margin:12px 0 0}
+@media(max-width:650px){.tabs button{font-size:11px}.tabs .tab-icon{display:none}.mood-tools,.profile-top,.monthly-grid{grid-template-columns:1fr}.month-header{align-items:start}.month-stats>div{padding:7px}.month-stat{font-size:20px}}
+</style>
+</head>
+<body>
+<header><div class="bar"><div class="brand"><span class="logo" aria-hidden="true">✦</span>PawLink</div><span class="badge"><i class="dot"></i>Course Prototype</span></div></header>
+<main>
+<section class="hero" aria-labelledby="title">
+<div class="hero-copy"><div class="eyebrow">PAWLINK / SMART COLLAR</div><h1 id="title">Smart Collar</h1><p>Get to know <span id="hero-pet">Mochi</span>, from daily walks <br>to the sounds he makes.</p><div class="device"><span id="pet-badge">Mochi · Shiba Inu</span><span>Demo online · 86% battery</span></div></div>
+<svg id="pet-art" class="dog" viewBox="0 0 460 295" role="img" aria-label="Mochi the Shiba Inu wearing a green smart collar">
+<defs><pattern id="dots" width="19" height="19" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.2" fill="#486b39" opacity=".32"/></pattern></defs>
+<circle cx="251" cy="180" r="123" fill="#c5e479"/><circle cx="251" cy="180" r="140" fill="none" stroke="#73984c" stroke-dasharray="4 7"/><path d="M330 35h104v95H330zM38 179h95v96H38z" fill="url(#dots)"/><path d="M69 108v28m-14-14h28m306 92v28m-14-14h28" stroke="#5f8442" stroke-width="2" stroke-linecap="round"/>
+<path d="M136 295c0-46 33-92 111-94 79-3 118 44 123 94" fill="#d98b54" stroke="#17312a" stroke-width="3"/><path d="M178 295c7-34 31-62 70-62 39 0 63 25 71 62" fill="#fff0d1"/>
+<path d="M157 153c-5-36-20-77-11-119 2-11 10-12 19-6l57 47c20-7 47-7 66 0l56-47c9-6 17-5 19 6 8 39-4 79-12 119 7 46-35 88-96 88s-106-41-98-88Z" fill="#e69c62" stroke="#17312a" stroke-width="3"/><path d="m163 47 40 36-35 29Zm182 0-40 36 35 29Z" fill="#f8bba4"/><path d="M158 161c24 15 42-11 57-13 19-2 24 21 39 21 14 0 20-23 39-21 15 2 33 28 58 13 5 42-40 78-96 78s-100-36-97-78Z" fill="#fff0d1"/><path d="M185 137q11-12 22 0m95 0q11-12 22 0" fill="none" stroke="#17312a" stroke-width="5" stroke-linecap="round"/><ellipse cx="255" cy="174" rx="15" ry="10" fill="#17312a"/><path d="M255 181q-6 18-22 10m22-10q7 18 23 10" fill="none" stroke="#17312a" stroke-width="3" stroke-linecap="round"/><path d="M176 228q75 36 157 0l4 17q-82 38-165 0Z" fill="#305a44" stroke="#17312a" stroke-width="3"/><rect x="232" y="239" width="47" height="31" rx="9" fill="#d8ee8f" stroke="#17312a" stroke-width="3"/><path d="M242 255h7l4-7 5 13 4-6h6" fill="none" stroke="#17312a" stroke-width="2"/>
+</svg></section>
+<nav class="tabs" role="tablist" aria-label="Collar features">
+<button id="tab-location" role="tab" aria-controls="location" aria-selected="true"><span class="tab-icon" aria-hidden="true">⌖ </span>Location</button><button id="tab-health" role="tab" aria-controls="health" aria-selected="false" tabindex="-1"><span class="tab-icon" aria-hidden="true">♡ </span>Health</button><button id="tab-mood" role="tab" aria-controls="mood" aria-selected="false" tabindex="-1"><span class="tab-icon" aria-hidden="true">◉ </span>Mood</button><button id="tab-translate" role="tab" aria-controls="translate" aria-selected="false" tabindex="-1"><span class="tab-icon" aria-hidden="true">✦ </span>Translate</button>
+<button id="tab-profile" role="tab" aria-controls="profile" aria-selected="false" tabindex="-1"><span class="tab-icon" aria-hidden="true">▤ </span>Profile</button>
+</nav>
+<section class="panel" id="location" role="tabpanel" aria-labelledby="tab-location">
+<div class="panel-title"><div><div class="eyebrow">01 / LOCATION</div><h2 id="location-heading">Where’s Mochi?</h2></div><span class="badge"><i class="dot"></i>Demo Location</span></div>
+<div class="grid">
+<div class="card map"><span class="map-label">Demo Map</span>
+<svg id="current-map" viewBox="0 0 580 280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Demo map showing Mochi inside the park’s safe zone">
+<rect width="580" height="280" fill="#e5ebdc"/><path d="M0 194Q94 134 192 187t229 24l159-29v98H0" fill="#c9dec5"/><path d="M445-15q-42 64 3 125t4 183" fill="none" stroke="#a8d2d5" stroke-width="42"/><path d="M-15 91h611M104-18l54 310M-8 232 593 137M325-12l-20 306" stroke="#fffdf2" stroke-width="11"/><path d="M-15 91h611M104-18l54 310M-8 232 593 137M325-12l-20 306" stroke="#d2d9cb" stroke-width="1" stroke-dasharray="3 6"/><circle cx="286" cy="140" r="83" fill="#d8ee8f" fill-opacity=".45" stroke="#779e53" stroke-width="2" stroke-dasharray="6 5"/><path class="route" id="walk" d="M173 193 213 182 235 142 230 102 272 91 323 91 315 144 286 140" fill="none" stroke="#246443" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="286" cy="140" r="18" fill="#17312a" stroke="white" stroke-width="4"/><circle cx="286" cy="140" r="5" fill="#d8ee8f"/><text id="map-pet" x="303" y="131" fill="#17312a" font-size="14" font-weight="bold">Mochi</text><text x="193" y="238" fill="#385c4c" font-size="12">Community Park</text></svg></div>
+<div class="card side"><h3>Current Location</h3><p class="place">Community Park · East Gate</p><p class="sub" id="location-status" aria-live="polite">Demo reading at 16:42</p><div class="legend"><i></i><span>Inside the safe zone</span></div><hr><button class="action" id="route-button" aria-pressed="false">Show Walking Route</button><button class="action secondary" id="refresh">Refresh Demo Location</button></div>
+</div></section>
+<section class="panel" id="health" role="tabpanel" aria-labelledby="tab-health" hidden>
+<div class="panel-title"><div><div class="eyebrow">02 / HEALTH</div><h2 id="health-heading">How active was Mochi today?</h2></div><span class="badge">Sample Data</span></div>
+<div class="metric-grid"><div class="card"><h3>Active Time</h3><div class="metric">48 <small>min</small></div></div><div class="card"><h3>Rest Time</h3><div class="metric">7.4 <small>hr</small></div></div><div class="card"><h3>Resting Heart Rate</h3><div class="metric">82 <small>bpm</small></div></div></div>
+<div class="card"><div class="row"><div><h3 id="chart-title">Activity Today</h3><p class="sub" id="chart-desc">Activity picked up during the afternoon walk.</p></div><button class="chip" id="health-toggle" aria-pressed="false">Last 7 Days</button></div><div class="bars" id="bars" role="img" aria-label="Sample activity bar chart"></div><div class="hours" id="hours"></div><p class="notice">All values are simulated for this prototype.</p></div>
+</section>
+<section class="panel" id="mood" role="tabpanel" aria-labelledby="tab-mood" hidden>
+<div class="panel-title"><div><div class="eyebrow">03 / MOOD</div><h2 id="mood-heading">How might Mochi be feeling?</h2></div><span class="badge">Simulated Signals</span></div>
+<div class="grid"><div class="card mood"><h3>Choose a Scenario</h3><div class="chips" id="mood-chips"><button class="chip" aria-pressed="true">After a Walk</button><button class="chip" aria-pressed="false">Doorbell Rings</button><button class="chip" aria-pressed="false">Home Alone</button><button class="chip" aria-pressed="false">Playtime</button></div><div aria-live="polite"><strong id="mood-name">Relaxed</strong><p id="mood-desc">Mochi slows down and lies down to rest.</p></div></div><div class="card"><h3>Sample Signals</h3><p class="sub">Choose a scenario or start the live demo to see the signals change.</p><div id="signals"></div><p class="notice">These mood estimates are illustrative. Observe your dog’s behavior for context.</p></div></div>
+<div class="mood-tools">
+<div class="card"><h3>Live Mood Recognition</h3><p class="sub">Start the demo to read simulated collar signals every three seconds. Each reading is added to today's mood log.</p><button class="action" type="button" id="live-mood" aria-pressed="false">Start Live Demo</button><p class="sub" id="live-status" role="status">Paused</p></div>
+<div class="card"><h3>End-of-Day Mood Score</h3><p class="sub">The score is the average of the day's recorded moods. Higher is better.</p><div id="daily-score" class="score-number" aria-live="polite"></div><p id="daily-detail" class="sub"></p><button class="action secondary" type="button" id="finish-day">Simulate End of Day</button></div>
+</div>
+</section>
+<section class="panel" id="translate" role="tabpanel" aria-labelledby="tab-translate" hidden>
+<div class="panel-title"><div><div class="eyebrow">04 / PAW TALK</div><h2>Try a Two-Way Conversation</h2></div><span class="badge">✦ PREMIUM DEMO</span></div>
+<div class="grid">
+<div class="card premium"><h3>Bark to English</h3><p class="sub">Choose a sample bark to see how PawLink might interpret it in context.</p><div class="chips" id="bark-chips"><button class="chip" aria-pressed="true">Barks at the Door</button><button class="chip" aria-pressed="false">Playful Barks</button><button class="chip" aria-pressed="false">Soft Whine</button></div><button class="action" id="decode">Play and Interpret</button><div class="result" id="decoded" aria-live="polite"><span class="sub">Ready to Play</span></div></div>
+<div class="card premium"><h3>English to Bark</h3><p class="sub">Choose an English phrase to hear its simulated bark.</p><div class="chips" id="phrase-chips"><button class="chip" aria-pressed="true">Come here</button><button class="chip" aria-pressed="false">Let’s play</button><button class="chip" aria-pressed="false">Time to rest</button></div><button class="action" id="encode">Generate and Play</button><div class="result" id="encoded" aria-live="polite"><span class="sub">Ready to Play</span></div></div>
+</div><p class="notice">This course prototype uses preset scenarios and synthesized audio. Both the text and the sounds are for demonstration.</p>
+</section>
+<section class="panel" id="profile" role="tabpanel" aria-labelledby="tab-profile" hidden>
+<div class="panel-title"><div><div class="eyebrow">05 / PROFILE</div><h2>Pet Profile</h2></div><span class="badge">Monthly History</span></div>
+<div class="profile-top">
+<form class="card profile-form" id="pet-form">
+<h3>Pet Details</h3>
+<label>Name <input id="pet-name" required maxlength="24" value="Mochi"></label>
+<label>Breed <input id="pet-breed" required maxlength="32" value="Shiba Inu"></label>
+<label>Age in years <input id="pet-age" required type="number" min="0" max="40" step="0.1" value="3"></label>
+<button class="action" type="submit">Save Profile</button><p id="profile-status" class="sub" role="status">Saved on this device when browser storage is available.</p>
+</form>
+<div class="card">
+<div class="month-header"><div><h3>Daily Mood Scores</h3><p id="month-mood" class="sub"></p></div><label class="month-picker">Month <select id="history-month"></select></label></div>
+<div class="calendar" id="mood-calendar" aria-label="Daily mood score calendar"></div>
+<p class="notice">Scores range from 0 to 100. Higher scores indicate a more positive day. Select a date to see its mood, route, and health details.</p>
+<p class="day-summary" id="selected-mood" aria-live="polite"></p>
+</div></div>
+<div class="monthly-grid">
+<div class="card">
+<div class="row"><h3>Monthly Walking Routes</h3><button class="chip" id="show-month-routes" type="button" aria-pressed="true">All Routes</button></div>
+<p class="sub" id="month-distance"></p>
+<div class="map"><span class="map-label">Demo Map</span><svg viewBox="0 0 580 280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Map of simulated walking routes around Community Park">
+<rect width="580" height="280" fill="#e5ebdc"/><path d="M0 194Q94 134 192 187t229 24l159-29v98H0" fill="#c9dec5"/><path d="M445-15q-42 64 3 125t4 183" fill="none" stroke="#a8d2d5" stroke-width="42"/><path d="M-15 91h611M104-18l54 310M-8 232 593 137M325-12l-20 306" stroke="#fffdf2" stroke-width="11"/><path d="M-15 91h611M104-18l54 310M-8 232 593 137M325-12l-20 306" stroke="#d2d9cb" stroke-width="1" stroke-dasharray="3 6"/><g id="history-routes"></g><text x="215" y="248" fill="#385c4c" font-size="13">Community Park</text></svg></div>
+<p class="day-summary" id="selected-route"></p>
+</div>
+<div class="card"><h3>Monthly Health</h3><p class="sub" id="health-period"></p>
+<div class="month-stats"><div><small>Active time</small><div id="month-active" class="month-stat"></div></div><div><small>Avg. daily rest</small><div id="month-rest" class="month-stat"></div></div><div><small>Avg. resting heart rate</small><div id="month-heart" class="month-stat"></div></div></div>
+<p class="sub">Daily activity in minutes</p><div class="bars" id="month-health-chart" role="img"></div><div class="hours" id="month-chart-days"></div>
+<p class="day-summary" id="selected-health"></p>
+</div></div>
+<p class="notice">The monthly history includes simulated routes, health readings, and past mood scores. Daily scores created in the Mood tab are stored in this browser.</p>
+</section>
+</main>
+<footer><span>PawLink Smart Collar</span><span>Course Prototype · All Data Simulated</span></footer>
+<script>
+const byId = id => document.getElementById(id);
+const tabs = [...document.querySelectorAll('[role=tab]')];
+function selectTab(tab) {
+  tabs.forEach(item => {
+    const active = item === tab;
+    item.setAttribute('aria-selected', active);
+    item.tabIndex = active ? 0 : -1;
+    byId(item.getAttribute('aria-controls')).hidden = !active;
+  });
+  if (tab.id === 'tab-mood') updateDailyScore();
+  if (tab.id === 'tab-profile') renderMonth();
+}
+tabs.forEach((tab, index) => {
+  tab.onclick = () => selectTab(tab);
+  tab.onkeydown = event => {
+    const next = {ArrowLeft: (index + tabs.length - 1) % tabs.length, ArrowRight: (index + 1) % tabs.length, Home: 0, End: tabs.length - 1}[event.key];
+    if (next === undefined) return;
+    event.preventDefault();
+    selectTab(tabs[next]);
+    tabs[next].focus();
+  };
+});
+byId('route-button').onclick = event => {
+  const shown = byId('walk').classList.toggle('on');
+  event.currentTarget.setAttribute('aria-pressed', shown);
+  event.currentTarget.textContent = shown ? 'Hide Walking Route' : 'Show Walking Route';
+};
+let minute = 42;
+byId('refresh').onclick = () => {
+  minute++;
+  const hour = 16 + Math.floor(minute / 60);
+  byId('location-status').textContent = 'Demo reading at ' + (hour % 24) + ':' + String(minute % 60).padStart(2, '0') + ' · Updated';
+};
+let weekly = false;
+function renderHealth() {
+  byId('chart-title').textContent = weekly ? 'Activity Over 7 Days' : 'Activity Today';
+  byId('chart-desc').textContent = weekly ? 'In this sample week, Saturday was the most active day.' : 'Activity picked up during the afternoon walk.';
+  const heights = weekly ? [41,56,36,65,62,92,72] : [16,25,52,37,26,62,88,71,42,21];
+  byId('bars').setAttribute('aria-label', weekly ? 'Sample activity over seven days, with a peak on Saturday' : 'Sample activity today, with a peak in the afternoon');
+  byId('bars').innerHTML = heights.map(value => '<div style="height:' + value + '%"></div>').join('');
+  byId('hours').innerHTML = (weekly ? ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] : ['06:00','09:00','12:00','15:00','18:00','21:00']).map(label => '<span>' + label + '</span>').join('');
+  byId('health-toggle').setAttribute('aria-pressed', weekly);
+  byId('health-toggle').textContent = weekly ? 'Today' : 'Last 7 Days';
+}
+byId('health-toggle').onclick = () => {weekly = !weekly; renderHealth();};
+renderHealth();
+function choices(id, onChange) {
+  const buttons = [...byId(id).querySelectorAll('button')];
+  buttons.forEach((button, index) => {
+    button.onclick = () => {
+      buttons.forEach(item => item.setAttribute('aria-pressed', item === button));
+      onChange(index);
+    };
+  });
+}
+const moods = [
+  ['Relaxed','Mochi slows down and lies down to rest.',[24,12,82]],
+  ['Alert','Mochi gets up, looks toward the door, and barks a few times.',[66,86,12]],
+  ['Possibly Uneasy','Mochi walks around occasionally and whines softly.',[46,52,36]],
+  ['Playful','Mochi is active and making short, playful sounds.',[83,43,16]]
+];
+function renderMood(index, readings = moods[index][2]) {
+  const [name, detail] = moods[index];
+  byId('mood-name').textContent = name;
+  byId('mood-desc').textContent = detail.replace('Mochi', () => history.pet.name);
+  byId('signals').innerHTML = ['Activity Intensity','Vocalization Rate','Stillness'].map((label,i) =>
+    '<div class="row"><span>' + label + '</span><small>' + readings[i] + '/100</small></div><div class="track" aria-hidden="true"><i style="width:' + readings[i] + '%"></i></div>').join('');
+}
+
+const calls = [
+  {label:'Barks at the Door', meaning:'“I think I heard something at the door.”', pulses:[[0,185,.16],[.24,153,.18]]},
+  {label:'Playful Barks', meaning:'“Let’s play a little longer!”', pulses:[[0,225,.15],[.19,245,.16],[.43,195,.19]]},
+  {label:'Soft Whine', meaning:'“I want to be near you.”', pulses:[[0,390,.36],[.49,320,.3]], whine:true},
+  {label:'Two Short Barks', pulses:[[0,208,.19],[.29,235,.2]]},
+  {label:'Three Playful Barks', pulses:[[0,255,.12],[.17,240,.13],[.34,285,.17]]},
+  {label:'One Low, Soft Bark', pulses:[[0,143,.34]]}
+];
+let audio;
+async function play(call) {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) throw new Error('Audio unsupported');
+  audio ??= new AudioContext();
+  await audio.resume();
+  const start = audio.currentTime + .035;
+  for (const [delay, pitch, duration] of call.pulses) {
+    const at = start + delay;
+    const oscillator = audio.createOscillator();
+    const filter = audio.createBiquadFilter();
+    const gain = audio.createGain();
+    oscillator.type = call.whine ? 'triangle' : 'sawtooth';
+    oscillator.frequency.setValueAtTime(pitch * .74, at);
+    oscillator.frequency.exponentialRampToValueAtTime(pitch * 1.28, at + .035);
+    oscillator.frequency.exponentialRampToValueAtTime(pitch * .64, at + duration);
+    filter.type = 'lowpass';
+    filter.frequency.value = call.whine ? 1050 : 760;
+    gain.gain.setValueAtTime(.001, at);
+    gain.gain.exponentialRampToValueAtTime(call.whine ? .065 : .2, at + .03);
+    gain.gain.exponentialRampToValueAtTime(.001, at + duration);
+    oscillator.connect(filter).connect(gain).connect(audio.destination);
+    oscillator.start(at);
+    oscillator.stop(at + duration);
+  }
+  const [delay, , duration] = call.pulses.at(-1);
+  await new Promise(resolve => setTimeout(resolve, (delay + duration) * 1000 + 70));
+}
+function setupTranslation(chipsId, buttonId, resultId, offset) {
+  let selected = 0;
+  let revision = 0;
+  const result = byId(resultId);
+  const button = byId(buttonId);
+  choices(chipsId, index => {
+    selected = index;
+    revision++;
+    result.innerHTML = '<span class="sub">Ready to Play</span>';
+  });
+  button.onclick = async () => {
+    const call = calls[selected + offset];
+    const before = revision;
+    byId('decode').disabled = byId('encode').disabled = true;
+    result.innerHTML = '<span class="wave" aria-hidden="true">▂▅▇▃▆▂</span><br>Playing sample…';
+    let audioFailed = false;
+    try { await play(call); } catch { audioFailed = true; }
+    if (before === revision) {
+      result.innerHTML = '<span class="sub">' + (call.meaning ? 'Sample Interpretation' : 'Synthesized Bark · ' + call.label) + '</span><br><strong>' +
+        (call.meaning || (audioFailed ? 'Audio Unavailable' : 'Finished · Play Again')) + '</strong>' +
+        (audioFailed && call.meaning ? '<br><span class="sub">This browser could not play the audio</span>' : '');
+    }
+    byId('decode').disabled = byId('encode').disabled = false;
+  };
+}
+setupTranslation('bark-chips','decode','decoded',0);
+setupTranslation('phrase-chips','encode','encoded',3);
+const historyKey = 'pawlink-demo-history-v1';
+const initialPet = {name:'Mochi', breed:'Shiba Inu', age:'3'};
+let savedHistory;
+let localStorageAvailable = true;
+try {
+  savedHistory = JSON.parse(localStorage.getItem(historyKey));
+} catch {
+  localStorageAvailable = false;
+}
+const history = {
+  pet: {...initialPet, ...savedHistory?.pet},
+  days: savedHistory?.days ?? {}
+};
+function saveHistory() {
+  try {
+    localStorage.setItem(historyKey, JSON.stringify(history));
+    localStorageAvailable = true;
+  } catch {
+    localStorageAvailable = false;
+  }
+}
+function dateKey(date) {
+  return [date.getFullYear(), date.getMonth() + 1, date.getDate()]
+    .map(part => String(part).padStart(2,'0')).join('-');
+}
+const shortDate = new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric'});
+const monthDate = new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric'});
+const moodPoints = [88, 63, 39, 96];
+const liveSequence = [[82,40,16],[25,11,82],[65,89,10],[23,13,81],[45,50,35],[24,10,82]];
+function recognizeMood([activity, vocalization, stillness]) {
+  if (vocalization >= 75) return 1;
+  if (activity >= 75) return 3;
+  if (stillness >= 65) return 0;
+  return 2;
+}
+let liveTimer = null;
+let livePosition = 0;
+let currentMood = 0;
+
+function dayScore(samples) {
+  return Math.round(samples.reduce((sum, point) => sum + point, 0) / samples.length);
+}
+function recordMood(index) {
+  const key = dateKey(new Date());
+  const entry = history.days[key] ?? {samples:[], final:null};
+  if (entry.final !== null) return;
+  entry.samples.push(moodPoints[index]);
+  history.days[key] = entry;
+  saveHistory();
+}
+function updateDailyScore() {
+  const entry = history.days[dateKey(new Date())];
+  const final = entry?.final ?? null;
+  const count = entry?.samples.length ?? 0;
+  byId('daily-score').innerHTML = final === null ? '—' : final + ' <small>/ 100</small>';
+  byId('daily-detail').textContent = final === null
+    ? count + (count === 1 ? ' reading recorded. ' : ' readings recorded. ') +
+      (count ? 'Finish the day to calculate the score.' : 'Try the live demo or use a sample day.')
+    : 'Finalized from ' + count + ' readings. Find this score in your monthly history.' +
+      (localStorageAvailable ? '' : ' Browser storage is unavailable, so it will last for this session.');
+  byId('finish-day').disabled = final !== null;
+  byId('finish-day').textContent = final === null ? 'Simulate End of Day' : 'Day Finalized';
+}
+function showMood(index, capture, readings) {
+  currentMood = index;
+  renderMood(index, readings);
+  [...byId('mood-chips').querySelectorAll('button')].forEach((button, i) => button.setAttribute('aria-pressed', i === index));
+  if (capture) recordMood(index);
+  updateDailyScore();
+}
+function liveReading() {
+  const readings = liveSequence[livePosition % liveSequence.length];
+  showMood(recognizeMood(readings), true, readings);
+  livePosition++;
+  const entry = history.days[dateKey(new Date())];
+  byId('live-status').textContent = 'Live demo · Last reading ' + new Date().toLocaleTimeString('en-US') +
+    (entry?.final != null ? ' · Today’s score is finalized' : '');
+}
+function stopLive() {
+  if (liveTimer === null) return;
+  clearInterval(liveTimer);
+  liveTimer = null;
+  byId('live-mood').textContent = 'Start Live Demo';
+  byId('live-mood').setAttribute('aria-pressed', false);
+  byId('live-status').textContent = 'Paused';
+}
+choices('mood-chips', index => {
+  stopLive();
+  showMood(index, true);
+  byId('live-status').textContent = 'Manual sample shown';
+});
+byId('live-mood').onclick = () => {
+  if (liveTimer !== null) {
+    stopLive();
+    return;
+  }
+  liveReading();
+  liveTimer = setInterval(liveReading, 3000);
+  byId('live-mood').textContent = 'Pause Live Demo';
+  byId('live-mood').setAttribute('aria-pressed', true);
+};
+byId('finish-day').onclick = () => {
+  const key = dateKey(new Date());
+  const entry = history.days[key] ?? {samples:[], final:null};
+  if (entry.final !== null) return;
+  if (!entry.samples.length) entry.samples = [88, 96, 63, 88];
+  entry.final = dayScore(entry.samples);
+  history.days[key] = entry;
+  saveHistory();
+  stopLive();
+  updateDailyScore();
+  renderMonth();
+};
+
+function showPet() {
+  byId('pet-name').value = history.pet.name;
+  byId('pet-breed').value = history.pet.breed;
+  byId('pet-age').value = history.pet.age;
+  byId('hero-pet').textContent = history.pet.name;
+  byId('pet-art').setAttribute('aria-label', history.pet.name + ' wearing a green smart collar');
+  byId('pet-badge').textContent = history.pet.name + ' · ' + history.pet.breed;
+  byId('location-heading').textContent = 'Where’s ' + history.pet.name + '?';
+  byId('health-heading').textContent = 'How active was ' + history.pet.name + ' today?';
+  byId('mood-heading').textContent = 'How might ' + history.pet.name + ' be feeling?';
+  byId('map-pet').textContent = history.pet.name;
+  byId('current-map').setAttribute('aria-label','Demo map showing ' + history.pet.name + ' inside the park’s safe zone');
+  renderMood(currentMood);
+}
+byId('pet-form').onsubmit = event => {
+  event.preventDefault();
+  const name = byId('pet-name').value.trim();
+  const breed = byId('pet-breed').value.trim();
+  if (!name || !breed) {
+    byId('profile-status').textContent = 'Enter a name and breed.';
+    return;
+  }
+  history.pet = {name, breed, age:byId('pet-age').value};
+  saveHistory();
+  showPet();
+  byId('profile-status').textContent = localStorageAvailable
+    ? 'Profile saved on this device.' : 'Profile saved for this session. Browser storage is unavailable.';
+};
+
+const routes = [
+  'M173 193 213 182 235 142 230 102 272 91 323 91 315 144 286 140',
+  'M112 91 160 91 171 131 217 150 250 155 286 140',
+  'M286 140 309 151 347 151 387 145 397 189 350 218 306 212 286 140',
+  'M286 140 248 142 212 181 190 201 157 222 198 232 252 205 286 140'
+];
+const initialDate = new Date();
+const monthSelect = byId('history-month');
+for (let offset = 0; offset < 3; offset++) {
+  const date = new Date(initialDate.getFullYear(), initialDate.getMonth() - offset, 1);
+  const option = document.createElement('option');
+  option.value = dateKey(date).slice(0,7);
+  option.textContent = monthDate.format(date);
+  monthSelect.append(option);
+}
+let selectedDay = initialDate.getDate();
+let allRoutes = true;
+function monthRecords(year, month) {
+  const nowKey = dateKey(new Date());
+  const last = new Date(year, month + 1, 0).getDate();
+  return Array.from({length:last}, (_, index) => {
+    const date = new Date(year, month, index + 1);
+    const key = dateKey(date);
+    const seed = (year * 17 + month * 23 + (index + 1) * 31) % 107;
+    const past = key < nowKey;
+    const entry = history.days[key];
+    const sampleScore = 55 + seed % 42;
+    const score = entry?.final ?? (past ? (entry?.samples.length ? dayScore(entry.samples) : sampleScore) : null);
+    return {
+      date, day:index + 1, score, hasData:key <= nowKey,
+      isSampleScore:past && !entry?.samples.length,
+      distance:(10 + seed % 30) / 10,
+      route:seed % routes.length,
+      active:key === nowKey ? 48 : 28 + seed % 46,
+      rest:key === nowKey ? 7.4 : 6.5 + (seed % 24) / 10,
+      heart:key === nowKey ? 82 : 72 + seed % 17
+    };
+  });
+}
+function renderMonth() {
+  const [year, monthNumber] = monthSelect.value.split('-').map(Number);
+  const month = monthNumber - 1;
+  const records = monthRecords(year, month);
+  const available = records.filter(day => day.hasData);
+  const scored = available.filter(day => day.score !== null);
+  const title = monthDate.format(records[0].date);
+  const chosen = available.find(day => day.day === selectedDay) ?? available.at(-1);
+  selectedDay = chosen.day;
+  byId('month-mood').textContent = scored.length
+    ? 'Average mood ' + dayScore(scored.map(day => day.score)) + '/100 · ' + scored.length + ' scored days'
+    : 'No finalized scores yet.';
+  const headings = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(label => '<span class="weekday">' + label + '</span>');
+  const blanks = Array(records[0].date.getDay()).fill('<span aria-hidden="true"></span>');
+  const days = records.map(day => {
+    const tone = day.score === null ? '' : day.score >= 80 ? 'good' : day.score >= 65 ? 'mixed' : 'low';
+    const label = shortDate.format(day.date) + (day.score === null ? ' · no score' : ' · mood ' + day.score + ' out of 100');
+    return '<button type="button" class="day ' + tone + '" data-day="' + day.day + '" aria-label="' +
+      label + '" aria-pressed="' + (day.day === selectedDay) + '"' + (day.hasData ? '' : ' disabled') + '>' +
+      day.day + '<small>' + (day.score ?? '—') + '</small></button>';
+  });
+  byId('mood-calendar').innerHTML = [...headings,...blanks,...days].join('');
+  byId('mood-calendar').querySelectorAll('button:not(:disabled)').forEach(button => {
+    button.onclick = () => {
+      selectedDay = Number(button.dataset.day);
+      allRoutes = false;
+      renderMonth();
+      byId('mood-calendar').querySelector('[aria-pressed="true"]').focus();
+    };
+  });
+  const dayLabel = shortDate.format(chosen.date);
+  byId('selected-mood').textContent = dayLabel + ' · ' + (chosen.score === null
+    ? 'Mood score pending' : (chosen.isSampleScore ? 'Sample mood score ' : 'Daily mood score ') + chosen.score + '/100');
+  byId('month-distance').textContent = title + ' · ' + available.length + ' recorded days · ' +
+    available.reduce((total, day) => total + day.distance, 0).toFixed(1) + ' km';
+  const displayedRoutes = allRoutes ? [...new Set(available.map(day => day.route))] : [chosen.route];
+  byId('history-routes').innerHTML = displayedRoutes.map(route =>
+    '<path d="' + routes[route] + '" fill="none" stroke="' + (route === chosen.route ? '#1b593b' : '#729451') +
+    '" stroke-width="' + (route === chosen.route ? '5' : '3') + '" stroke-linecap="round" stroke-linejoin="round"/>').join('');
+  byId('show-month-routes').setAttribute('aria-pressed', allRoutes);
+  byId('selected-route').textContent = (allRoutes ? 'Highlighted route: ' : 'Selected route: ') + dayLabel + ' · ' + chosen.distance.toFixed(1) + ' km';
+  const mean = field => available.reduce((total, day) => total + day[field], 0) / available.length;
+  byId('health-period').textContent = title + ' · ' + available.length + ' days of sample readings';
+  byId('month-active').textContent = (mean('active') * available.length / 60).toFixed(1) + ' hr';
+  byId('month-rest').textContent = mean('rest').toFixed(1) + ' hr';
+  byId('month-heart').textContent = Math.round(mean('heart')) + ' bpm';
+  byId('month-health-chart').setAttribute('aria-label', 'Sample daily activity for ' + title);
+  byId('month-health-chart').innerHTML = records.map(day => '<div style="height:' +
+    (day.hasData ? day.active : 0) + '%;' + (day.day === selectedDay ? 'background:#3c754a' : '') +
+    '" title="' + shortDate.format(day.date) + (day.hasData ? ' · ' + day.active + ' min' : ' · no data') + '"></div>').join('');
+  byId('month-chart-days').innerHTML = [1,8,15,22,records.length].map(day => '<span>' + day + '</span>').join('');
+  byId('selected-health').textContent = dayLabel + ' · ' + chosen.active + ' min active · ' +
+    chosen.rest.toFixed(1) + ' hr rest · ' + chosen.heart + ' bpm resting';
+}
+monthSelect.onchange = () => {
+  selectedDay = 0;
+  allRoutes = true;
+  renderMonth();
+};
+byId('show-month-routes').onclick = () => {
+  allRoutes = true;
+  renderMonth();
+};
+showPet();
+updateDailyScore();
+renderMonth();
+</script>
+</body>
+</html>
